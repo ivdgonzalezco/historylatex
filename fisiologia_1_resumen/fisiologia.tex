@@ -1,0 +1,216 @@
+%\documentclass
+\documentclass{article}
+
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{caption}
+
+
+\usepackage{multirow}
+
+\titleformat{\section}[block]{\filcenter\Large\bfseries}{}{1em}{}
+\captionsetup[figure]{labelformat=empty}
+
+\title{Resumen Fisiología I}
+\author{Ivan Dario Gonzalez Collazos}
+\date{Septiembre 4 del 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Conceptos básicos}
+
+\begin{itemize}
+    \item \textbf{Sonido}: Alteración física de un medio (solido, liquido o gaseoso), en donde se produce un movimiento oscilatorio de forma ondularía en las partículas, propagándose de manera omnidireccional desde la fuente sonora.
+    \item \textbf{Transducir}: Transformación de la energía.
+    \item \textbf{Aire}: Medio de propagación. 
+    \item \textbf{Parlantes}: Transductores de salida, donde la energía eléctrica se transforma en energía mecánica cuando llega a los imanes del parlante y empieza a oscilar en la caja, transformándose esa energía de la oscilación en energía acústica cuando sale del parlante al medio.
+    \item \textbf{Micrófono}: Transductor de entrada, donde la energía acústica se transforma en energía mecánica, moviendo los imanes y las membranas dentro del micrófono, transformando los movimientos de esos componentes en energía eléctrica.
+    \item \textbf{Acústica}: Es todos los fenómenos que suceden en el medio de propagación del sonido, que en general es el su entorno natural, el aire.
+    \item \textbf{Audio}: Representación en energía eléctrica del sonido, la cual puede ser manipulada. Una pista de audio es la representación de la energía eléctrica en el tiempo.
+\end{itemize}
+
+\textbf{\textit{Propiedades de la materia}}
+
+\begin{itemize}
+    \item \textbf{Masa}: es el peso representado en gramos ($g$) de un cuerpo.
+    \item \textbf{Volumen}: Son las medidas (ancho, alto, largo) representadas en metros ($m$) de un cuerpo.
+    \item \textbf{Elasticidad}: Es la propiedad de un cuerpo para volver a su forma original después de cambiar su forma. Se mide con el coeficiente de elasticidad ($k$).
+\end{itemize}
+
+\textbf{Movimiento oscilatorio}: Movimiento cíclico de un cuerpo alrededor de un eje.\\
+
+\textbf{Onda}: Propagación de una alteración del medio en alguna propiedad del espacio, transportando energía, pero sin transportar la materia, transmitiendo esta energía por los átomos y partículas cerca al origen de la energía.\\
+
+\textbf{Onda mecánica}: Son ondas que se propagan por medio de las propiedades mecánicas, de densidad y presión del medio.\\
+
+\textbf{\textit{Tipos de ondas}}
+
+\begin{itemize}
+    \item \textbf{Transversales:} La materia y la energía se mueven de manera perpendicular entre ellas.
+    \item \textbf{Longitudinales:} La materia y la energía se mueven de manera paralela entre ellas. 
+    \item \textbf{Oblicuas:} Son ondas que se mueven de manera rotativa en el espacio.
+\end{itemize}
+
+El oído responde de mejor manera a las ondas longitudinales.\\
+
+\textbf{\textit{Dominios de la ingeniera de sonido}}
+
+\begin{itemize}
+    \item \textbf{Dominio del tiempo:} Como se comporta la energía en el tiempo.
+    \item \textbf{Dominio de la frecuencia:}  Representación gráfica (espectro) de cómo se comporta la amplitud a través de la frecuencia.
+\end{itemize}
+
+\section{Formula general de la oscilación}
+
+\[ x = Asen(\omega t + \phi) \]
+
+Donde:
+
+\begin{itemize}
+    \item $x$ es la cantidad de energía representada en $dB$ (decibeles).
+    \item $t$ es el tiempo, que es una variable independiente.
+    \item $A$ es $X_{max}$, que es la cantidad de energía máxima.
+    \item $\omega t + \phi$ representa a la fase.
+    \item $\omega$ Es la frecuencia, que tambien puede ser intepretada como velocidad angular.
+\end{itemize}
+
+\textbf{Frecuencia ($F$)}: Numero de ciclos por segundo. Se mide en $Hz$ (Herzios).\\
+
+\textbf{Periodo ($T$)}: Tiempo medido en segundos ($s$), que tarda una partícula en dar un ciclo. Su formula es:
+
+\[ T = \frac{1}{F} \]
+
+Donde $F$ es la frecuencia.\\
+
+\textbf{Angulo de fase ($\phi$)}: Posición inicial de la onda, expresada en grados o radianes.\\
+
+\textbf{Fase ($\omega t + \phi$)}: Posición de la onda en cualquier instante de tiempo, expresada en grados o radianes.\\
+
+\textbf{\textit{Velocidad angular ($\omega$)}}\\
+
+Es la medida de la velocidad de rotación de un objeto (medida en $\frac{Rad}{s}$), que es define como:
+
+\begin{equation}
+   \omega = 2\Pi F
+\end{equation}
+
+Si expresamos $F$ como:
+
+\begin{equation}
+    F = \frac{1}{T}
+\end{equation}
+
+Podemos reemplazar (2) en uno y quedaria así:
+
+\begin{equation}
+    \omega = \frac{2\Pi}{T}
+\end{equation}
+ 
+\textbf{Fuerzas recuperadoras:} Son fuerzas que buscan generar un equilibrio a un sistema físico.\\
+
+Newton define la fuerza como:
+
+\begin{equation}
+    \vec{F} = ma
+\end{equation}
+
+Donde $m$ es la masa de un objeto, y $a$ es su aceleración.\\
+
+Hooke define la fuerza como:
+
+\begin{equation}
+    \vec{F} = -xk
+\end{equation}
+
+Donde $x$ es la distancia recorrida por el objeto, y $k$ es el coeficiente de elasticidad.\\
+
+Si igualamos (4) y (5), tendríamos:
+
+\begin{equation}
+    ma= -xk
+\end{equation}
+
+Y si despejamos $a$ obtenemos la aceleración definida como:
+
+\begin{equation}
+    a= -\frac{xk}{m}
+\end{equation}
+
+Ahora, se tiene que derivar la formula general de la oscilación, para poder obtener la velocidad ($v$):
+
+\begin{equation}
+    \frac{\partial x}{\partial t} = A\omega cos(\omega t + \phi) = v
+\end{equation}
+
+Y si derivamos la velocidad, obtenemos la aceleración ($a$) que se expresa como :
+
+\begin{equation}
+    \frac{\partial v}{\partial t} = -A\omega^2 sen(\omega t + \phi) = a
+\end{equation}
+
+Con esto podemos reemplazar $a$ en (7) utilizando a (9) para reemplazar a $a$:
+
+\begin{equation}
+    -A\omega^2 sen(\omega t + \phi) = -\frac{xk}{m}
+\end{equation}
+
+Eliminamos el - y tenemos:
+
+\begin{equation}
+    A\omega^2 sen(\omega t + \phi) = \frac{xk}{m}
+\end{equation}
+
+Como en (11) tenemos $Asen(\omega t + \phi)$, podemos definirla como $x$ y tendríamos:
+
+\begin{equation}
+    \omega^2 x = \frac{xk}{m}
+\end{equation}
+
+Eliminamos $x$ de (12) y obtenemos:
+
+\begin{equation}
+    \omega^2 = \frac{k}{m}
+\end{equation}
+
+Para eliminar la potencia cuadrada, sacamos la raiz cuadrada a ambos lados:
+
+\begin{equation}
+    \omega = \sqrt{\frac{k}{m}}
+\end{equation}
+
+Podemos utilizar a (1) para reemplazar $\omega$, obteniendo:
+
+\begin{equation}
+    2\Pi F = \sqrt{\frac{k}{m}}
+\end{equation}
+
+Y podemos expresar la frecuencia como:
+
+\begin{equation}
+    F = \frac{\sqrt{k}}{2\Pi \sqrt{m}}
+\end{equation}
+
+Tambien podemos reemplazar $F$ utilizando (2), quedando:
+
+\begin{equation}
+    \frac{1}{T} = \frac{\sqrt{k}}{2\Pi \sqrt{m}}
+\end{equation}
+
+Y despejamos $T$ para obtener el tiempo:
+
+\begin{equation}
+    T = \frac{2\Pi \sqrt{m}}{\sqrt{k}}
+\end{equation}
+
+De la ecuación (16), podemos definir relaciones de proporcionalidad, donde podemos interpretar que:
+
+\begin{itemize}
+    \item Más masa es igual a tener frecuencias bajas.
+    \item Menos masa es igual a tener frecuencias más altas.
+\end{itemize}
+
+\end{document}
