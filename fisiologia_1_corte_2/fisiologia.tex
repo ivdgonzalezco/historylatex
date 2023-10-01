@@ -1,0 +1,512 @@
+%\documentclass
+\documentclass{article}
+
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{mathtools}
+
+\titleformat{\section}[block]{\filcenter\Large\bfseries}{}{1em}{}
+\captionsetup[figure]{labelformat=empty}
+
+\title{Resumen Fisiología I}
+\author{Ivan Dario Gonzalez Collazos}
+\date{Septiembre 4 del 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Punto 1}
+
+Dos fuentes emiten sonido con niveles de intensidad de 58$dB$ y 60$dB$ respectivamente. Hallar el $SPL$ total generado cuando las fuentes funcionan simultaneamente.
+\begin{gather*}
+    Fuente\ A: IL_A = 58\ dB = SPL_A\\ 
+    Fuente\ B: IL_B = 60\ dB = SPL_B
+\end{gather*}
+
+Como:
+\begin{equation}
+    P = 10^\frac{SPL}{20}\ P_{ref}
+\end{equation}
+
+Entonces utilizamos a (1) con la informacion del $SPL_A$ y el $SPL_B$ para tener:
+\begin{gather*}
+    P_A = 10^\frac{58}{20}\ 20 \times 10^{-6}\\
+    P_A = 0.015\ Pa\\\\
+    P_B = 10^\frac{60}{20}\ 20 \times 10^{-6}\\
+    P_B = 10^{3}\ 20 \times 10^{-6}\\
+    P_B = 0.02\ Pa
+\end{gather*}
+
+Como las fuentes no estan correlacionadas, necesitamos utilizar la suma de presiones de fuentes no correlacionas:
+
+\begin{equation}
+    P_T = \sqrt{{P_A}^2 + {P_B}^2}
+\end{equation}
+
+Entonces utilizaremos las presiones halladas para hallar la $P_T$ para despues calcular $SPL_T$, haciendo uso de (2).
+\begin{gather*}
+    P_T = \sqrt{0.015^2 + 0.02^2}\\
+    P_T = \sqrt{0.000225 + 0.0004}\\
+    P_T = \sqrt{0.000625}\\
+    P_T = 0.025\ Pa\\
+\end{gather*}
+
+Ya con $P_T$ podemos calcular el $SPL_T$ utilizando la siguiente ecuación:
+
+\begin{equation}
+    SPL = 20 \log(\frac{P}{P_{ref}})
+\end{equation}
+
+Entonces:
+
+\begin{gather*}
+    SPL_T = 20 \log(\frac{.025}{20 \times 10^{-6}})\\
+    SPL_T = 20 \log(1250)\\
+    SPL_T = 20 \times 3.0969\\
+    SPL_T = 61.93 \approx 62\ dB
+\end{gather*}
+
+El $SPL_T$ es 62 $dB$.
+
+\section{Punto 2}
+
+Los $Lw$ de dos fuentes sonoras son de 90$dB$ y 100$db$ respectivamente, encuentre el $Lw$ total.
+\begin{gather*}
+    Lw_A = 90\ dB\\
+    Lw_B = 100\ dB
+\end{gather*}
+
+Para hallar $Lw_T$ tenemos que hacer uso de la siguiente ecuación:
+\begin{equation}
+    Lw = 10 \log(\frac{W}{W_{ref}})
+\end{equation}
+
+Entonces despejamos $W$ de (4):
+\begin{gather*}
+    Lw = 10 \log(\frac{W}{W_{ref}})\\
+    \frac{Lw}{10} = \log(\frac{W}{W_{ref}})\\
+    \log(\frac{W}{W_{ref}}) = \frac{Lw}{10}\\
+    \frac{W}{W_{ref}} = 10^{\frac{Lw}{10}}
+\end{gather*}
+\begin{equation}
+    W = 10^{\frac{Lw}{10}}\ W_{ref}\\
+\end{equation}
+
+Entonces ahora podemos hallar $W_A$ y $W_B$ utilizando los datos que tenemos ($Lw_A$ y $Lw_B$):
+\begin{gather*}
+    W_A = 10^{\frac{Lw_A}{10}}\ W_{ref}\\
+    W_A = 10^{\frac{90}{10}}\ 10^{-12}\\
+    W_A = 10^{9}\ 10^{-12}\\
+    W_A = 10^{9-12}\\
+    W_A = 10^{-3}\\
+    W_A = 0.001\ W\\\\
+    W_B = 10^{\frac{Lw_B}{10}}\ W_{ref}\\
+    W_B = 10^{\frac{100}{10}}\ 10^{-12}\\
+    W_B = 10^{10}\ 10^{-12}\\
+    W_B = 10^{10-12}\\
+    W_B = 10^{-2}\\
+    W_B = 0.01\ W
+\end{gather*}
+
+Para hallar $W_T$ solo tenemos que sumar las $W$:
+\begin{gather*}
+    W_T = W_A + W_B\\
+    W_T = 0.001 + 0.01\\
+    W_T = 0.011\ W
+\end{gather*}
+
+Ahora haciendo uso de (4), podemos hallar $W_T$:
+\begin{gather*}
+    Lw_T = 10 \log(\frac{W_T}{W_{ref}})\\
+    Lw_T = 10 \log(\frac{0.011}{10^{-12}})\\
+    Lw_T = 10 \log(11000000000)\\
+    Lw_T = 10 \times 10.041\\
+    Lw_T = 100.41 \approx 100\ dB
+\end{gather*}
+
+El $Lw_T$ es 100 $dB$.
+
+\section{Punto 3}
+
+Calcular el $SPL$ a 4$m$ para una fuente sonora que genera un $Lw$ de 95$dB$.\\
+Tenemos:
+\begin{gather*}
+    Lw = 95\ dB\\
+    r = 4\ m
+\end{gather*}
+
+Para empezar, tenemos que hallar $W$ utilizando la ecuación que se despejo en el punto anterior (5):
+\begin{gather*}
+    W = 10^{\frac{Lw}{10}}\ W_{ref}\\
+    W = 10^{\frac{95}{10}}\ 10^{-12}\\
+    W = 10^{9.5}\ 10^{-12}\\
+    W = 10^{9.5-12}\\
+    W = 10^{2.5}\\
+    W = 0.0031622\ W
+\end{gather*}
+
+Entonces tenemos que definir $W$:
+
+\begin{equation}
+    W = \frac{P^2}{Z_c} 4\pi r^2
+\end{equation}
+
+Tenemos que depejar $P$ desde (6):
+\begin{gather*}
+    W = \frac{P^2}{Z_c} 4\pi r^2\\
+    \frac{W}{4\pi r^2} = \frac{P^2}{Z_c}\\
+    \frac{WZ_c}{4\pi r^2} = P^2
+\end{gather*}
+\begin{equation}
+    P = \sqrt{\frac{WZ_c}{4\pi r^2}}
+\end{equation}
+Ahora hallamos $P$:
+\begin{gather*}
+    P = \sqrt{\frac{0.0031622 \times 408}{4\pi 4^2}}\\
+    P = \sqrt{\frac{0.0031622 \times 102}{\pi 16}}\\
+    P = \sqrt{\frac{0.32255}{50.2654}}\\
+    P = \sqrt{0.0064169}\\
+    P = 0.0801\ Pa
+\end{gather*}
+
+Ahora, utilizando la ecuación (3) expresada en el punto 1, hallamos $SPL$:
+\begin{gather*}
+    SPL = 20 \log(\frac{P}{P_{ref}})\\
+    SPL = 20 \log(\frac{0.0801}{20 \times 10^{-6}})\\
+    SPL = 20 \log(4005.304)\\
+    SPL = 20 \times 3.6026\\
+    SPL = 72.05 \approx 72 dB
+\end{gather*}
+
+El $SPL$ es 72 $dB$.
+
+\section{Punto 4}
+
+Determine el $SPL$ de 4 fuentes sonoras, si a 4 $m$ del receptor generan niveles de presión de 34 $dB$, 41 $dB$, 43 $dB$ y 58 $dB$ respectivamente.\\
+
+Aquí utilizamos la tabla de suma de $dB$ para fuentes no correlacionadas. Entonces agrupamos en pares y empezamos a comparar:\\
+
+34 $dB$ y 41 $dB$ tienen como diferencia 7 $dB$, por lo tanto se le suma al mayor 1 $dB$. Entonces en esta pareja la suma da 42 $dB$.\\
+
+43 $dB$ y 58 $dB$ tienen como diferencia 15 $dB$, por lo tanto no se le suma al mayor $dB$. Entonces en esta pareja la suma da 58 $dB$.\\
+
+Ahora sumamos las sumas anteriores: 42 $dB$ y 58 $dB$ tiene como diferencia 15 $dB$, por lo tanto no se le suma al mayor $dB$. Entonces en esta pareja la suma da 58 $dB$.\\
+
+El $SPL$ es de 58 $dB$.
+
+\section{Punto 5}
+
+Para el ejercicio anterior encuentre la potencia acústica y la intensidad sonora de cada fuente.\\
+
+Aqui definimos cada $SPL$ de cada fuente:
+\begin{gather*}
+    SPL_A = 34\ dB\\
+    SPL_B = 41\ dB\\
+    SPL_C = 43\ dB\\
+    SPL_D = 58\ dB
+\end{gather*}
+
+Y tenemos a $r = 4m$.\\
+
+Para hallar los $Lw$ y $IL$, tenemos que utilizar la ecuación (3) presentada en el punto 1 y la ecuación (6) presentada en el punto 3, además de presentar la siguiente formula para hallar la intensidad:
+
+\begin{equation}
+    I = \frac{P^2}{Z_c}
+\end{equation}
+
+Tambien haremos uso de la ecuación (4) definida en el punto 2 y tambien de la formula de $IL$:
+
+\begin{equation}
+    IL = 10 \log(\frac{I}{I_{ref}})
+\end{equation}
+
+Entonces iniciamos hallando $Lw_A$ y $IL_A$ de la fuente A:
+\begin{gather*}
+    P_A = 10^{\frac{SPL_A}{20}} 20 \times 10^{-6}\\
+    P_A = 10^{\frac{34}{20}} 20 \times 10^{-6}\\
+    P_A = 50.118 \times 20 \times 10^{-6}\\
+    P_A = 0.00100\ Pa\\\\
+    I_A = \frac{P_A^2}{Z_c}\\
+    I_A = \frac{0.00100^2}{408}\\
+    I_A = \frac{0.000001}{408}\\
+    I_A = 2.45 \times 10^{-9}\ \frac{W}{m^2}\\\\
+    W_A = \frac{P_A^2}{Z_c} 4\pi r^2\\
+    W_A = \frac{0.00100^2}{408} 4\pi 4^2\\
+    W_A = \frac{0.00100^2}{102} \pi 4^2\\
+    W_A = \frac{0.00100^2}{102} \pi 16\\
+    W_A = 9.803 \times 10^{-9} \pi 16\\
+    W_A = 4.9260 \times 10^{-7}\ W
+\end{gather*}
+
+Ahora hallamos $IL_A$ y $Lw_A$:
+\begin{gather*}
+    IL_A = 10 \log(\frac{I_A}{I_{ref}})\\
+    IL_A = 10 \log(\frac{2.45 \times 10^{-9}}{10^{-12}})\\
+    IL_A = 10 \log(2450)\\
+    IL_A = 10 \times 3.389\\
+    IL_A = 33.89 \approx 34\ dB\\\\
+    Lw_A = 10 \log(\frac{W_A}{W_{ref}})\\
+    Lw_A = 10 \log(\frac{4.9260 \times 10^{-7}}{10^{-12}})\\
+    Lw_A = 10 \log(492.601)\\
+    Lw_A = 10 \times 5.692\\
+    Lw_A = 56.92 \approx 57\ dB
+\end{gather*}
+
+El $IL_A$ y $Lw_A$ son 34 $dB$ y 57 $dB$.\\
+
+Ahora hallamos $Lw_B$ y $IL_B$ de la fuente B:
+\begin{gather*}
+    P_B = 10^{\frac{SPL_B}{20}} 20 \times 10^{-6}\\
+    P_B = 10^{\frac{41}{20}} 20 \times 10^{-6}\\
+    P_B = 112.20 \times 20 \times 10^{-6}\\
+    P_B = 0.0022\ Pa\\\\
+    I_B = \frac{P_B^2}{Z_c}\\
+    I_B = \frac{0.0022^2}{408}\\
+    I_B = \frac{0.00000484}{408}\\
+    I_B = 1.186 \times 10^{-8}\ \frac{W}{m^2}\\\\
+    W_B = \frac{P_B^2}{Z_c} 4\pi r^2\\
+    W_B = \frac{0.0022^2}{408} 4\pi 4^2\\
+    W_B = \frac{0.0022^2}{102} \pi 4^2\\
+    W_B = \frac{0.0022^2}{102} \pi 16\\
+    W_B = 1.186 \times 10^{-8} \pi 16\\
+    W_B = 0.0000023851\ W
+\end{gather*}
+
+Ahora hallamos $IL_B$ y $Lw_B$:
+\begin{gather*}
+    IL_B = 10 \log(\frac{I_B}{I_{ref}})\\
+    IL_B = 10 \log(\frac{1.186 \times 10^{-8}}{10^{-12}})\\
+    IL_B = 10 \log(11862.7451)\\
+    IL_B = 10 \times 4.07418\\
+    IL_B = 40.7418 \approx 41\ dB\\\\
+    Lw_B = 10 \log(\frac{W_B}{W_{ref}})\\
+    Lw_B = 10 \log(\frac{0.0000023851}{10^{-12}})\\
+    Lw_B = 10 \log(2385.1)\\
+    Lw_B = 10 \times 6.37750\\
+    Lw_B = 63.7750 \approx 64\ dB
+\end{gather*}
+
+El $IL_B$ y $Lw_B$ son 41 $dB$ y 64 $dB$.
+
+Ahora hallamos $Lw_C$ y $IL_C$ de la fuente C:
+\begin{gather*}
+    P_C = 10^{\frac{SPL_C}{20}} 20 \times 10^{-6}\\
+    P_C = 10^{\frac{43}{20}} 20 \times 10^{-6}\\
+    P_C = 141.2537 \times 20 \times 10^{-6}\\
+    P_C = 0.002825\ Pa\\\\
+    I_C = \frac{P_C^2}{Z_c}\\
+    I_C = \frac{0.002825^2}{408}\\
+    I_C = \frac{0.0000079806}{408}\\
+    I_C = 1.956 \times 10^{-8}\ \frac{W}{m^2}\\\\
+    W_C = \frac{P_C^2}{Z_c} 4\pi r^2\\
+    W_C = \frac{0.002825^2}{408} 4\pi 4^2\\
+    W_C = \frac{0.002825^2}{102} \pi 4^2\\
+    W_C = \frac{0.002825^2}{102} \pi 16\\
+    W_C = 1.956 \times 10^{-8} \pi 16\\
+    W_C = 0.0000039328\ W
+\end{gather*}
+
+Ahora hallamos $IL_C$ y $Lw_C$:
+\begin{gather*}
+    IL_C = 10 \log(\frac{I_C}{I_{ref}})\\
+    IL_C = 10 \log(\frac{1.956 \times 10^{-8}}{10^{-12}})\\
+    IL_C = 10 \log(19560.35)\\
+    IL_C = 10 \times 4.2913\\
+    IL_C = 42.913 \approx 43\ dB\\\\
+    Lw_C = 10 \log(\frac{W_C}{W_{ref}})\\
+    Lw_C = 10 \log(\frac{0.0000039328}{10^{-12}})\\
+    Lw_C = 10 \log(3932.89)\\
+    Lw_C = 10 \times 6.5947\\
+    Lw_C = 65.947 \approx 66\ dB
+\end{gather*}
+
+El $IL_C$ y $Lw_C$ son 43 $dB$ y 66 $dB$.
+
+Ahora hallamos $Lw_D$ y $IL_D$ de la fuente D:
+\begin{gather*}
+    P_D = 10^{\frac{SPL_D}{20}} 20 \times 10^{-6}\\
+    P_D = 10^{\frac{58}{20}} 20 \times 10^{-6}\\
+    P_D = 794.32 \times 20 \times 10^{-6}\\
+    P_D = 0.01588\ Pa\\\\
+    I_D = \frac{P_D^2}{Z_c}\\
+    I_D = \frac{0.01588^2}{408}\\
+    I_D = \frac{0.0002521}{408}\\
+    I_D = 6.180 \times 10^{-7}\ \frac{W}{m^2}\\\\
+    W_D = \frac{P_D^2}{Z_c} 4\pi r^2\\
+    W_D = \frac{0.01588^2}{408} 4\pi 4^2\\
+    W_D = \frac{0.01588^2}{102} \pi 4^2\\
+    W_D = \frac{0.01588^2}{102} \pi 16\\
+    W_D = 6.180 \times 10^{-7} \pi 16\\
+    W_D = 0.0001242\ W
+\end{gather*}
+
+Ahora hallamos $IL_D$ y $Lw_D$:
+\begin{gather*}
+    IL_D = 10 \log(\frac{I_D}{I_{ref}})\\
+    IL_D = 10 \log(\frac{6.180 \times 10^{-7}}{10^{-12}})\\
+    IL_D = 10 \log(618074.51)\\
+    IL_D = 10 \times 5.7910\\
+    IL_D = 57.91 \approx 57\ dB\\\\
+    Lw_D = 10 \log(\frac{W_D}{W_{ref}})\\
+    Lw_D = 10 \log(\frac{0.0001242}{10^{-12}})\\
+    Lw_D = 10 \log(124270.7)\\
+    Lw_D = 10 \times 8.0943\\
+    Lw_D = 80.943 \approx 81\ dB
+\end{gather*}
+
+El $IL_D$ y $Lw_D$ son 57 $dB$ y 81 $dB$.
+
+\section{Punto 6}
+
+Dos parlantes "A" y "B" en campo libre generan un $SPL$ total de 79$dB$ a 8$m$. Si el parlante A posee una potencia de 0.05$W$, determine que nivel de presión que genera el parlante B a 4$m$.\\
+
+Tenemos los siguientes datos:
+\begin{gather*}
+    SPL_T = 79\ dB
+    r = 8\ m
+    W_A = 0.05\ W
+\end{gather*}
+
+Entonces necesitamos utilizar la formula (1), (2) y (3) presentadas en el punto 1; y la ecuación (7) definida en el punto 3.\\
+
+Entonces empezamos a definir $P_A$ y $P_T$:
+\begin{gather*}
+    P_T = 10^\frac{SPL_T}{20}\ P_{ref}\\
+    P_T = 10^\frac{79}{20} 20 \times 10^{-6}\\
+    P_T = 8912,509 \times 20 \times 10^{-6}\\
+    P_T = 0.1782\ Pa\\\\
+    P_A = \sqrt{\frac{W_AZ_c}{4\pi r^2}}\\
+    P_A = \sqrt{\frac{0.05 \times 408}{4\pi 8^2}}\\
+    P_A = \sqrt{\frac{20.4}{804.247}}\\
+    P_A = \sqrt{0.0253}\\
+    P_A = 0.1592\ Pa
+\end{gather*}
+
+Ahora necesitamos despejar $P_B$ de la ecuación (2):
+\begin{gather*}
+    P_T = \sqrt{{P_A}^2 + {P_B}^2}\\
+    {P_T}^2 = {P_A}^2 + {P_B}^2\\
+    {P_B}^2 = {P_T}^2 - {P_A}^2\\
+    P_B = \sqrt{{P_T}^2 - {P_A}^2}
+\end{gather*}
+
+Hallamos $P_B$:
+\begin{gather*}
+    P_B = \sqrt{{0.1782}^2 - {0.1592}^2}\\
+    P_B = \sqrt{0.03177 - 0.02536}\\
+    P_B = \sqrt{0.00641}\\
+    P_B = 0.08006\ Pa
+\end{gather*}
+
+Ahora utilizando la formula (3), encontramos $SPL_B$:
+\begin{gather*}
+    SPL_B = 20 \log(\frac{P_B}{P_{ref}})\\
+    SPL_B = 20 \log(\frac{0.08006}{20 \times 10^{-6}})\\
+    SPL_B = 20 \log(4003.12)\\
+    SPL_B = 20 \times 3.6023\\
+    SPL_B = 72.04 \approx 72\ dB\ a\ 8\ m
+\end{gather*}
+
+Ahora, por ley del inverso cuadrado, dado que necesitamos hallar el $SPL_B$ a 4 $m$, entonces incrementamos en 6 $dB$ debido a que la distancia de redujo en la mitad teniendo como respuesta $SPL_B = 78\ dB$.
+
+\section{Punto 7}
+
+Para el ejercicio anterior halle el nivel de potencia de cada parlante.
+
+Aqui se hara uso de las formulas (4), presentada en le punto 2, y (6), presentada en el punto 3. También se tiene que hacer uso de las formulas (1) y (3) presentadas en el punto 1.\\
+
+Entonces, tenemos la siguiente información como base:
+\begin{gather*}
+    P_A = 0.1592\ Pa\\
+    P_B = 0.08006\ Pa\\
+    W_A = 0.05\ Pa\\
+    r = 4\ m\\
+    r = 8\ m\\
+    SPL_B = 78\ dB\ a\ 4m
+\end{gather*}
+
+Entonces iniciamos hallando $Lw_A$ y $Lw_B$ para la esfera de 8 metros ($r = 8\ m$). Primero se halla $W_B$
+\begin{gather*}
+    W_B = \frac{{P_B}^2}{Z_c} 4\pi r^2\\
+    W_B = \frac{0.08006^2}{408} 4\pi 8^2\\
+    W_B = \frac{0.006409}{408} 256\pi\\
+    W_B = 0.00001570 \times 804.2477\\
+    W_B = 0.01263\ W
+\end{gather*}
+    
+Ahora hallamos $Lw_A$ y $Lw_B$ para la esfera de 8 metros:
+\begin{gather*}
+    Lw_A = 10 \log(\frac{W_A}{W_{ref}})\\
+    Lw_A = 10 \log(\frac{0.05}{10^{-12}})\\
+    Lw_A = 10 \log(50000000000)\\
+    Lw_A = 10 \times 10.6989\\
+    Lw_A = 106.989 \approx 107\ dB\ a\ 8\ m\\\\
+    Lw_B = 10 \log(\frac{W_B}{W_{ref}})\\
+    Lw_B = 10 \log(\frac{0.01263}{10^{-12}})\\
+    Lw_B = 10 \log(12633264100)\\
+    Lw_B = 10 \times 10.1015\\
+    Lw_B = 101.015 \approx 101\ dB\ a\ 8\ m\\
+\end{gather*}
+
+En una esfera de 8 metros, el nivel de potencia de $A$ y $B$ es de 107 $dB$ y 101 $dB$ respectivamente.\\
+
+Ahora para una esfera de 4 metros, primero hallamos el $SPL_A$ a 4 metros:
+\begin{gather*}
+    SPL_A = 20 \log(\frac{P_A}{P_{ref}})\\
+    SPL_A = 20 \log(\frac{0.1592}{20 \times 10^{-6}})\\
+    SPL_A = 20 \log(7960)\\
+    SPL_A = 20 \times 39.0091\\
+    SPL_A = 78.01 \approx 78\ dB
+\end{gather*}
+
+Como es a la mitad de la distacia (4 metros), entonces el $SPL_A$ se incrementa en 6 $dB$, por lo tanto el $SLP_A = 84\ dB$\\.
+
+Ahora hallamos $P_A$ y $P_B$ para 4 metros:
+\begin{gather*}
+    P_A = 10^\frac{SPL_A}{20}\ P_{ref}\\
+    P_A = 10^\frac{84}{20}\ 20 \times 10^{-6}\\
+    P_A = 12848.25 \times 20 \times 10^{-6}\\
+    P_A = 0.3169\ Pa\\\\
+    P_B = 10^\frac{SPL_B}{20}\ P_{ref}\\
+    P_B = 10^\frac{78}{20}\ 20 \times 10^{-6}\\
+    P_B = 7943.28 \times 20 \times 10^{-6}\\
+    P_B = 0.1588\ Pa
+\end{gather*}
+Ahora hallamos la potencia para para las fuente con esfera de 4 metros:
+\begin{gather*}
+    W_A = \frac{{P_A}^2}{Z_c} 4\pi r^2\\
+    W_A = \frac{0.31692}{408} 4\pi 4^2\\
+    W_A = \frac{0.10042}{408} 64\pi\\
+    W_A = 0.0002461 \times 201.0619\\
+    W_A = 0.049\ W\\\\
+    W_B = \frac{{P_B}^2}{Z_c} 4\pi r^2\\
+    W_B = \frac{0.1588^2}{408} 4\pi 4^2\\
+    W_B = \frac{0.02521}{408} 64\pi\\
+    W_B = 0.00006180 \times 201.0619\\
+    W_B = 0.012\ W
+\end{gather*}
+Hallamos $Lw_A$ y $Lw_B$ para la esfera de 4 metros:
+\begin{gather*}
+    Lw_A = 10 \log(\frac{W_A}{W_{ref}})\\
+    Lw_A = 10 \log(\frac{0.049}{10^{-12}})\\
+    Lw_A = 10 \log(49000000000)\\
+    Lw_A = 10 \times 10.6909\\
+    Lw_A = 106.909 \approx 107\ dB\ a\ 4\ m\\\\
+    Lw_B = 10 \log(\frac{W_B}{W_{ref}})\\
+    Lw_B = 10 \log(\frac{0.012}{10^{-12}})\\
+    Lw_B = 10 \log(12000000000)\\
+    Lw_B = 10 \times 10.079\\
+    Lw_B = 100.79 \approx 101\ dB\ a\ 4\ m\\
+\end{gather*}
+
+A 4 metros, el nivel de potencia de $A$ y $B$ es de 107 $dB$ y 101 $dB$ respectivamente.\\
+
+Por lo tanto, la distancia no influencia cuando se necesitan hallar niveles de potencia.
+
+\end{document}
